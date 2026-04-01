@@ -1,12 +1,11 @@
 <div align="center">
-  <img src="./data/images/opencook_logo.png" width="140px" alt="OpenCook Logo"/><br/>
   <h1>OpenCook</h1>
   <p><b>The External Personalization Layer for Coding Agents</b></p>
   <p><i>Start with a generic project. End with a perfectly tailored solution.</i></p>
 </div>
 
-<div align="center">
 
+<div align="center">
   [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
   [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
   [![Multi-Agent](https://img.shields.io/badge/Multi--Agent-Plan·Code·Test-F97316?style=flat-square)]()
@@ -16,7 +15,6 @@
 </div>
 
 <div align="center">
-
   <a href="#-news">News</a> &nbsp;•&nbsp;
   <a href="#-introduction">Introduction</a> &nbsp;•&nbsp;
   <a href="#-demo">Demo</a> &nbsp;•&nbsp;
@@ -37,11 +35,13 @@
 
 ---
 
+
+
 ## 🗞️ News
 
 > - **\[04/2026\]** 🎉 OpenCook **v1.0** is live — the first external personalization layer purpose-built for coding agents. Built-in Recipe library **`oh-my-opencook/`** released. Community recipes are welcome!
 
----
+
 
 ## ✨ Introduction
 
@@ -52,7 +52,23 @@ Coding agents are powerful but generic. They can navigate your codebase, but the
 > **Why database functions as the reference case?**  
 > Implementing a function at C/C++ source level inside a production database — respecting its memory model, type system, and build infrastructure — is one of the hardest personalization tasks imaginable.
 
----
+
+
+## 🆚 Comparison
+
+How OpenCook stands apart on the surfaces that matter most to its personalization thesis.
+
+| Surface                                 | **OpenCook** | Claude Code | Codex | OpenCode | OpenClaw |
+| --------------------------------------- | :----------: | :---------: | :---: | :------: | :------: |
+| Project-Local Personalization Path      |      ✦       |      ✦      |   ~   |    ✦     |    ✦     |
+| Built-In Delivery Loop (Plan→Code→Test) |      ✦       |      ~      |   ~   |    ~     |    ~     |
+| Explicit Multi-Layer Memory             |      ✦       |      ~      |   ~   |    ~     |    ~     |
+| Patch-Oriented Traceability             |      ✦       |      ~      |   ~   |    ~     |    ~     |
+| In-Tree Domain Scaffolding              |      ✦       |      ✗      |   ✗   |    ✗     |    ✗     |
+
+<sub>✦ Clearly present &nbsp; ~ Present but narrower &nbsp; ✗ Not observed in inspected source</sub>
+
+
 
 ## 🎬 Demo
 
@@ -60,19 +76,15 @@ Coding agents are powerful but generic. They can navigate your codebase, but the
   <i>👇 Full walkthrough video — <a href="https://vimeo.com/1178451557" target="_blank">watch on Vimeo</a></i>
 </div>
 
-<br/>
-
-A live session personalizing SQLite with a new scalar function:
-
 [![CLI Overview](./opencook-preview.png)](https://vimeo.com/1178451557)
 
----
+
 
 ## 🕹 Quick Start
 
 **Prerequisites:** Python 3.10+, an LLM API key, and the source tree of your target project.
 
-### Step 1 — Install
+### Step  1 Install
 
 ```bash
 git clone https://github.com/weAIDB/OpenCook.git && cd OpenCook
@@ -80,7 +92,7 @@ conda create -n opencook python=3.10 -y && conda activate opencook
 pip install -r requirements.txt
 ```
 
-### Step 2 — Configure
+### Step 2  Configure
 
 ```bash
 cp code_config.yaml.example code_config.yaml   # then edit with your settings
@@ -104,7 +116,7 @@ models:
         temperature: 0.0
 ```
 
-### Step 3 — Cook
+### Step 3  Cook
 
 ```bash
 # Interactive TUI (recommended)
@@ -117,7 +129,7 @@ python agent_main.py --task "Implement the BOOL_AND aggregate function for SQLit
 python agent_main.py --db postgresql --task "Implement the SINH scalar function"
 ```
 
----
+
 
 ## 📚 Features
 
@@ -166,7 +178,7 @@ Every run emits a trajectory record, a file diff, and a structured report. Full 
 </tr>
 </table>
 
----
+
 
 ## 🏗️ How It Works
 
@@ -178,7 +190,7 @@ OpenCook runs a deterministic **Plan → Code → Test** pipeline through three 
 | **PlanAgent** | Read-only Scoper | Decomposes the task; locates files, entry points, and conventions |
 | **TestAgent** | Validator | Compiles, runs test suite, reports failures back to CodeAgent |
 
----
+
 
 ## 🗄️ Reference Case: Database Functions
 
@@ -193,7 +205,7 @@ The reference benchmark — the domain hardest to automate correctly, and thus t
 
 > The same Plan → Code → Test loop applies to any codebase domain. Database engines are just the hardest kitchen to cook in.
 
----
+
 
 ## 🔌 Compatibility
 
@@ -221,7 +233,7 @@ The reference benchmark — the domain hardest to automate correctly, and thus t
 
 Each agent role (Plan / Code / Test) can use a **different model and provider** independently.
 
----
+
 
 ## 🔪 Extend OpenCook
 
@@ -263,23 +275,7 @@ triggers: [implement X, add X feature]
 
 Implement `BaseClient` in `code_agent/utils/llm_clients/` and register it in `LLMClient`. No other changes needed.
 
----
 
-## 🆚 Comparison
-
-How OpenCook stands apart on the surfaces that matter most to its personalization thesis.
-
-| Surface | **OpenCook** | Claude Code | Codex | OpenCode | OpenClaw |
-|---|:---:|:---:|:---:|:---:|:---:|
-| Project-Local Personalization Path | ✦ | ✦ | ~ | ✦ | ✦ |
-| Built-In Delivery Loop (Plan→Code→Test) | ✦ | ~ | ~ | ~ | ~ |
-| Explicit Multi-Layer Memory | ✦ | ~ | ~ | ~ | ~ |
-| Patch-Oriented Traceability | ✦ | ~ | ~ | ~ | ~ |
-| In-Tree Domain Scaffolding | ✦ | ✗ | ✗ | ✗ | ✗ |
-
-<sub>✦ Clearly present &nbsp; ~ Present but narrower &nbsp; ✗ Not observed in inspected source</sub>
-
----
 
 ## 🤔 FAQ
 
@@ -313,7 +309,6 @@ Optional but recommended. Without it, TestAgent compiles on the host. With it, e
 TestAgent captures compiler output and test failures as structured tool results and feeds them back to CodeAgent. CodeAgent patches iteratively until all checks pass or the step budget is exhausted.
 </details>
 
----
 
 ## 📋 Roadmap
 
@@ -324,7 +319,7 @@ TestAgent captures compiler output and test failures as structured tool results 
 - [ ] **Fine-Tuned Models** — domain-specific models trained on successful trajectories
 - [ ] **MCP Server** — expose the recipe + memory system as an MCP endpoint for any agent
 
----
+
 
 ## 👫 Community
 
@@ -334,7 +329,7 @@ We welcome contributions of all kinds — new recipes, domain backends, LLM clie
 - **Issues / PRs**: open an issue or pull request
 - **Discussions**: [GitHub Discussions](https://github.com/weAIDB/OpenCook/discussions)
 
----
+
 
 ## 📒 Citation
 
@@ -343,11 +338,11 @@ We welcome contributions of all kinds — new recipes, domain backends, LLM clie
   author       = {Wei Zhou and others},
   title        = {OpenCook: An External Personalization Layer for Coding Agents},
   year         = {2026},
-  howpublished = {\url{https://github.com/weAIDB/OpenCook}}
+  howpublished = {https://github.com/weAIDB/OpenCook}
 }
 ```
 
----
+
 
 ## 📝 License
 
