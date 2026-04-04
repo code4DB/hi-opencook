@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="color-scheme" content="dark"/>
   <meta name="theme-color" content="#060912"/>
-  <title>OpenCook — External Personalization Layer for Coding Agents</title>
+  <title>OpenCook - Project-Specific Personalization for Coding Agents</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -202,8 +202,8 @@
       <div class="hero-ecosystem-flow-stage">
         <div class="hero-ecosystem-flow-pills">
           <span>Recipes</span>
-          <span>Skills</span>
-          <span>Policies</span>
+          <span>Loop</span>
+          <span>Rules</span>
           <span>Memory</span>
         </div>
         <div class="hero-ecosystem-flow-arrow"></div>
@@ -304,7 +304,7 @@
     <div class="sec-head reveal">
       <div class="eyebrow">Competitive Landscape</div>
       <h2 class="sec-h2">How OpenCook<br/><span class="text-grad">Stands Apart</span></h2>
-      <p class="sec-sub">Project-local recipes, staged role separation, per-agent model routing, and live-verified patches for codebase personalization built from the ground up.</p>
+      <p class="sec-sub">Project-local recipes, staged role separation, per-agent model routing, and live-verified patches for project-specific personalization built from the ground up.</p>
     </div>
     <!-- Video placeholder -->
     <div class="video-ph reveal">
@@ -445,8 +445,8 @@
             <path d="M2 6l8 4 8-4M10 10v8" stroke="#7C3AED" stroke-width="1.4" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>Dynamic Skills</h3>
-        <p>Drop a <code>SKILL.md</code> folder on the path — loaded at runtime.</p>
+        <h3>Dynamic Recipes</h3>
+        <p>Drop a recipe folder with a <code>SKILL.md</code> entry file on the path — loaded at runtime.</p>
       </div>
       <div class="feat-card reveal">
         <div class="bc-icon bc-icon-cyan">
@@ -489,26 +489,41 @@
     <div class="sec-head reveal">
       <div class="eyebrow">Get Started</div>
       <h2 class="sec-h2">Up &amp; Running<br/><span class="text-grad">in Minutes</span></h2>
+      <p class="sec-sub">Four steps to give any coding agent project-specific recipes, rules, and memory — and start personalizing your codebase.</p>
     </div>
     <div class="qs-grid">
       <div class="qs-step reveal">
-        <div class="qs-n">01</div><div class="qs-title">Install</div>
-        <div class="codebox"><div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code>pip install -r requirements.txt</code></pre></div>
+        <div class="qs-n">01</div><div class="qs-title">Clone</div>
+        <div class="codebox"><div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code>git clone https://github.com/weAIDB/OpenCook.git
+cd OpenCook</code></pre></div>
       </div>
       <div class="qs-step reveal">
-        <div class="qs-n">02</div><div class="qs-title">Configure</div>
-        <div class="codebox"><div class="cb-bar"><span class="cb-lang">yaml</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code>model:
-  provider: anthropic
-  name: claude-sonnet-4-6
-database: postgresql</code></pre></div>
+        <div class="qs-n">02</div><div class="qs-title">Install</div>
+        <div class="codebox"><div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code>uv venv --python 3.10
+source .venv/bin/activate
+uv pip install -e .</code></pre></div>
       </div>
       <div class="qs-step reveal">
-        <div class="qs-n">03</div><div class="qs-title">Run</div>
-        <div class="codebox"><div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code># Batch mode
-opencook run "Implement array_to_string for PostgreSQL" --config-file opencook_config.yaml
+        <div class="qs-n">03</div><div class="qs-title">Configure</div>
+        <div class="codebox"><div class="cb-bar"><span class="cb-lang">yaml</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code># Target database
+databases:
+  default: sqlite  # postgresql | duckdb
 
-# Interactive shell
-opencook interactive</code></pre></div>
+# LLM provider &amp; API key
+model_providers:
+  anthropic:
+    api_key: your_api_key_here
+</code></pre></div>
+      </div>
+      <div class="qs-step reveal">
+        <div class="qs-n">04</div><div class="qs-title">Cook</div>
+        <div class="codebox"><div class="cb-bar"><span class="cb-lang">bash</span><button class="cb-copy" onclick="copyCode(this)">Copy</button></div><pre><code># Interactive TUI
+opencook interactive \
+  --config-file opencook_config.yaml
+
+# Headless
+opencook run "Add BOOL_AND for SQLite" \
+  --config-file opencook_config.yaml</code></pre></div>
       </div>
     </div>
   </div>
@@ -541,10 +556,10 @@ opencook interactive</code></pre></div>
         </svg>
         <span class="logo-name">Open<span class="logo-hi">Cook</span></span>
       </div>
-      <div class="footer-tag">External Plugin Layer for Project Personalization</div>
+      <div class="footer-tag">Project-Specific Personalization for Coding Agents</div>
       <nav class="footer-links" aria-label="Footer">
-        <a href="#cases">Cases</a>
         <a href="#compare">Compare</a>
+        <a href="#cases">Cases</a>
         <a href="#features">Features</a>
         <a href="#quickstart">Quickstart</a>
       </nav>
